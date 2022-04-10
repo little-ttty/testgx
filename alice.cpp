@@ -170,6 +170,7 @@ int main()
 {
     while (true)
     {
+        freopen("/home/test3/mytest/log.txt","w",stdout);
         const Message *m1 = next_message();
         if (m1)
         {
@@ -183,6 +184,7 @@ int main()
             timespec req = {dt / SECOND_TO_NANO, dt % SECOND_TO_NANO}, rem;
             nanosleep(&req, &rem); // 等待到下一条消息的发送时间
         }
+        fclose(stdout);
     }
 
     return 0;
